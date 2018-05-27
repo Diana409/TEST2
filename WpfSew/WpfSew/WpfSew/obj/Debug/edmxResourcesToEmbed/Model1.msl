@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SewEntitiesContainer" CdmEntityContainer="SewEntities1">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SewEntities.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заказ">
+      <EntityTypeMapping TypeName="SewEntities.Заказ">
+        <MappingFragment StoreEntitySet="Заказ">
+          <ScalarProperty Name="Номер" ColumnName="Номер" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="Этап_выполнения" ColumnName="Этап_выполнения" />
+          <ScalarProperty Name="Заказчик" ColumnName="Заказчик" />
+          <ScalarProperty Name="Менеджер" ColumnName="Менеджер" />
+          <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заказанные_изделия">
+      <EntityTypeMapping TypeName="SewEntities.Заказанные_изделия">
+        <MappingFragment StoreEntitySet="Заказанные_изделия">
+          <ScalarProperty Name="Номер_заказанного_изделия" ColumnName="Номер_заказанного_изделия" />
+          <ScalarProperty Name="Номер_заказа" ColumnName="Номер_заказа" />
+          <ScalarProperty Name="Артикул_изделия" ColumnName="Артикул_изделия" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Изделия">
+      <EntityTypeMapping TypeName="SewEntities.Изделия">
+        <MappingFragment StoreEntitySet="Изделия">
+          <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+          <ScalarProperty Name="Ширина" ColumnName="Ширина" />
+          <ScalarProperty Name="Длина" ColumnName="Длина" />
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Комментарий" ColumnName="Комментарий" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Пользователь">
+      <EntityTypeMapping TypeName="SewEntities.Пользователь">
+        <MappingFragment StoreEntitySet="Пользователь">
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="Роль" ColumnName="Роль" />
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Склад_ткани">
+      <EntityTypeMapping TypeName="SewEntities.Склад_ткани">
+        <MappingFragment StoreEntitySet="Склад_ткани">
+          <ScalarProperty Name="Рулон" ColumnName="Рулон" />
+          <ScalarProperty Name="Артикул_ткани" ColumnName="Артикул_ткани" />
+          <ScalarProperty Name="Ширина" ColumnName="Ширина" />
+          <ScalarProperty Name="Длина" ColumnName="Длина" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Склад_фурнитуры">
+      <EntityTypeMapping TypeName="SewEntities.Склад_фурнитуры">
+        <MappingFragment StoreEntitySet="Склад_фурнитуры">
+          <ScalarProperty Name="Партия" ColumnName="Партия" />
+          <ScalarProperty Name="Артикул_фурнитуры" ColumnName="Артикул_фурнитуры" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ткани">
+      <EntityTypeMapping TypeName="SewEntities.Ткани">
+        <MappingFragment StoreEntitySet="Ткани">
+          <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+          <ScalarProperty Name="Цвет" ColumnName="Цвет" />
+          <ScalarProperty Name="Рисунок" ColumnName="Рисунок" />
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Состав" ColumnName="Состав" />
+          <ScalarProperty Name="Ширина" ColumnName="Ширина" />
+          <ScalarProperty Name="Длина" ColumnName="Длина" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ткани_изделия">
+      <EntityTypeMapping TypeName="SewEntities.Ткани_изделия">
+        <MappingFragment StoreEntitySet="Ткани_изделия">
+          <ScalarProperty Name="Артикул_ткани_изделия" ColumnName="Артикул_ткани_изделия" />
+          <ScalarProperty Name="Артикул_ткани" ColumnName="Артикул_ткани" />
+          <ScalarProperty Name="Артикул_изделия" ColumnName="Артикул_изделия" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Фурнитура">
+      <EntityTypeMapping TypeName="SewEntities.Фурнитура">
+        <MappingFragment StoreEntitySet="Фурнитура">
+          <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+          <ScalarProperty Name="Тип" ColumnName="Тип" />
+          <ScalarProperty Name="Ширина" ColumnName="Ширина" />
+          <ScalarProperty Name="Длина" ColumnName="Длина" />
+          <ScalarProperty Name="Вес" ColumnName="Вес" />
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Фурнитура_изделия">
+      <EntityTypeMapping TypeName="SewEntities.Фурнитура_изделия">
+        <MappingFragment StoreEntitySet="Фурнитура_изделия">
+          <ScalarProperty Name="Артикул_фурнитуры_изделия" ColumnName="Артикул_фурнитуры_изделия" />
+          <ScalarProperty Name="Артикул_фурнитуры" ColumnName="Артикул_фурнитуры" />
+          <ScalarProperty Name="Артикул_изделия" ColumnName="Артикул_изделия" />
+          <ScalarProperty Name="Размещение" ColumnName="Размещение" />
+          <ScalarProperty Name="Ширина" ColumnName="Ширина" />
+          <ScalarProperty Name="Длина" ColumnName="Длина" />
+          <ScalarProperty Name="Поворот" ColumnName="Поворот" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

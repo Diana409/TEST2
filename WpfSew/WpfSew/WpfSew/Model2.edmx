@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DBSewingFactory" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "DBSewingFactory.dbo.tblOrder" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="tblOrder">
+          <Property Name="orderNumber" Type="nchar" MaxLength="10" />
+          <Property Name="orderDate" Type="nchar" MaxLength="10" />
+          <Property Name="step" Type="nchar" MaxLength="10" />
+          <Property Name="client" Type="nchar" MaxLength="10" />
+          <Property Name="manager" Type="nchar" MaxLength="10" />
+          <Property Name="cost" Type="money" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "DBSewingFactory.dbo.tblProductInOrder" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="tblProductInOrder">
+          <Property Name="productArticle" Type="int" />
+          <Property Name="orderNumber" Type="int" />
+          <Property Name="count" Type="int" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DBSewingFactory.dbo.tblProducts" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="tblProducts">
+          <Key>
+            <PropertyRef Name="article" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="width" />
+            <PropertyRef Name="length" />
+          </Key>
+          <Property Name="article" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="width" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="length" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="image" Type="image" />
+          <Property Name="comment" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblTextile">
+          <Key>
+            <PropertyRef Name="textileArticle" />
+          </Key>
+          <Property Name="textileArticle" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="color" Type="varchar" MaxLength="50" />
+          <Property Name="picture" Type="varchar" MaxLength="50" />
+          <Property Name="image" Type="image" />
+          <Property Name="composition" Type="varchar" MaxLength="50" />
+          <Property Name="width" Type="varchar" MaxLength="50" />
+          <Property Name="length" Type="varchar" MaxLength="50" />
+          <Property Name="cost" Type="money" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DBSewingFactory.dbo.tblUsers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="login" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="role" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "DBSewingFactory.dbo.Warehouse" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Warehouse">
+          <Property Name="roll" Type="nchar" MaxLength="10" />
+          <Property Name="textileArticle" Type="nchar" MaxLength="10" />
+          <Property Name="length" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <EntityContainer Name="Хранилище DBSewingFactoryContainer">
+          <EntitySet Name="tblTextile" EntityType="Self.tblTextile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProducts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[tblProducts].[article] AS [article], 
+[tblProducts].[name] AS [name], 
+[tblProducts].[width] AS [width], 
+[tblProducts].[length] AS [length], 
+[tblProducts].[image] AS [image], 
+[tblProducts].[comment] AS [comment]
+FROM [dbo].[tblProducts] AS [tblProducts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[tblUsers].[login] AS [login], 
+[tblUsers].[password] AS [password], 
+[tblUsers].[role] AS [role], 
+[tblUsers].[name] AS [name]
+FROM [dbo].[tblUsers] AS [tblUsers]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBSewingFactory" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblTextile">
+          <Key>
+            <PropertyRef Name="textileArticle" />
+          </Key>
+          <Property Name="textileArticle" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="composition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="width" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="length" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="tblProducts">
+          <Key>
+            <PropertyRef Name="article" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="width" />
+            <PropertyRef Name="length" />
+          </Key>
+          <Property Name="article" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="width" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="length" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="login" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="role" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DBSewingFactoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblTextile" EntityType="Self.tblTextile" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProducts" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBSewingFactoryContainer" CdmEntityContainer="DBSewingFactoryEntities">
+          <EntitySetMapping Name="tblTextile">
+            <EntityTypeMapping TypeName="DBSewingFactory.tblTextile">
+              <MappingFragment StoreEntitySet="tblTextile">
+                <ScalarProperty Name="textileArticle" ColumnName="textileArticle" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="composition" ColumnName="composition" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="DBSewingFactory.tblProducts">
+              <MappingFragment StoreEntitySet="tblProducts">
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="DBSewingFactory.tblUsers">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

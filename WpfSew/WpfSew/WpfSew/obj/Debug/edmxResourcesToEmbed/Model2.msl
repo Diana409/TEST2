@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBSewingFactoryContainer" CdmEntityContainer="DBSewingFactoryEntities">
+    <EntitySetMapping Name="tblTextile">
+      <EntityTypeMapping TypeName="DBSewingFactory.tblTextile">
+        <MappingFragment StoreEntitySet="tblTextile">
+          <ScalarProperty Name="textileArticle" ColumnName="textileArticle" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="composition" ColumnName="composition" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="DBSewingFactory.tblProducts">
+        <MappingFragment StoreEntitySet="tblProducts">
+          <ScalarProperty Name="article" ColumnName="article" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="DBSewingFactory.tblUsers">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
